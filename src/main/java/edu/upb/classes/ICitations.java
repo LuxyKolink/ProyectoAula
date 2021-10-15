@@ -11,6 +11,6 @@ package edu.upb.classes;
  */
 public interface ICitations <T>{
     
-    public void add(T appointment);
+    public void addNode(T appointment);
     
 }

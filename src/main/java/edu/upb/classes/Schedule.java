@@ -14,15 +14,45 @@ public class Schedule {
     private Node actual = null;
     private CircularNodeList<Appointment> citations;
 
+    
+    //  Constructor con los 15 espacios disponibles para las citas por día.
     public Schedule () {
         
         citations = new CircularNodeList();
         for(int i = 0; i<=15; i++){
-            citations.add(null);
+            citations.addNode(null);
         }
         
     }
 
+    //  Agregar cita al espacio indicado.
+    public void add(Appointment session){
+        
+        Appointment newAppointment = session;
+        
+        // Contador i
+        int i = 0;
+        
+        if (actual == null){
+            actual = citations.getFirst();
+        }
+        
+        Node current = Schedule.this.getActual();
+        
+        while(i <= 15){
+            
+            if(current.getValue() == null){
+                actual = current;
+                actual.setValue(newAppointment);
+                return;
+            }
+            
+            current = current.getNext();
+            i++;
+            
+        }
+    }
+    
     public Node getActual() {
         return actual;
     }
@@ -38,7 +68,5 @@ public class Schedule {
     public void setCitations(CircularNodeList<Appointment> citations) {
         this.citations = citations;
     }
-    
-    
-    
+
 }

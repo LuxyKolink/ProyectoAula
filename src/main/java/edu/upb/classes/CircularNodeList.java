@@ -40,8 +40,21 @@ public class CircularNodeList <T extends Comparable<T>> implements ICitations<T>
         this.current = current;
     }
     
+    
+    public void print(){
+        
+        Node current = first;
+        
+        for(int i = 0; i < 15; i++){
+            System.out.println(current.getValue());
+            System.out.println();
+            current = current.getNext();
+        }
+        
+    }
+
     @Override
-    public void add(T appointment) {
+    public void addNode(T appointment) {
         
         Node<T> current = new Node(appointment);
         

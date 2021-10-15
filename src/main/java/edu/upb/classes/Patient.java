@@ -55,5 +55,10 @@ public class Patient {
         this.ensurance = ensurance;
     }
     
-    
+    @Override
+    public String toString(){
+        
+        return "Edad: " +age+ " Nombre: "+name+" Identificación: "+id+" Afiliación: "+ensurance;
+        
+    }
 }

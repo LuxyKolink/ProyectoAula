@@ -54,5 +54,8 @@ public class Node <T extends Comparable<T>>{
         this.value = value;
     }
     
-    
+    public String showInformation(){
+        
+        return value.toString();
+    }
 }
