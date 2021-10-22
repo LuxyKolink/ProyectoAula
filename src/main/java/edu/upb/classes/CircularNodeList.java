@@ -52,6 +52,7 @@ public class CircularNodeList <T extends Comparable<T>> implements ICitations<T>
         }
         
     }
+    
 
     @Override
     public void addNode(T appointment) {

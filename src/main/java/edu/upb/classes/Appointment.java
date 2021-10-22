@@ -42,8 +42,7 @@ public class Appointment implements Comparable<Appointment>{
     
     @Override
     public String toString(){
-        
-        
+
         return "Datos de la cita: \n"+patient+ " Tipo de cita: "+typeAppointment;
         
     }

@@ -53,6 +53,35 @@ public class Schedule {
         }
     }
     
+    
+    public void deleteId(int id){
+        
+        Node deletePatient = citations.getFirst();
+        
+        int idDeletePatient = id;
+        
+        for(int i = 0; i<=15; i++){
+            
+            Appointment appointment = (Appointment) deletePatient.getValue();
+            Patient patient = appointment.getPatient();
+            
+            if(patient.getId() == idDeletePatient){
+                
+                deletePatient.setValue(null);
+                actual = deletePatient;
+                return;
+                
+            }
+            
+            deletePatient = deletePatient.getNext();
+            
+        }
+        
+        System.out.println("El paciente que se está buscando no se encuentra registrado");
+        
+    }
+    
+    
     public Node getActual() {
         return actual;
     }
