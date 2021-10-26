@@ -58,7 +58,7 @@ public class Patient {
     @Override
     public String toString(){
         
-        return "Edad: " +age+ " Nombre: "+name+" Identificación: "+id+" Afiliación: "+ensurance;
+        return "Edad: " +age+ " \nNombre: "+name+" \nIdentificación: "+id+" \nAfiliación: "+ensurance;
         
     }
 }

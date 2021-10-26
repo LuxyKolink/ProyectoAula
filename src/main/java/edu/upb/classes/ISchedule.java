@@ -9,8 +9,10 @@ package edu.upb.classes;
  *
  * @author santi
  */
-public interface ICitations <T>{
+public interface ISchedule <T>{
     
-    public void addNode(T appointment);
+    public void add(Appointment session);
+    public void deleteId(int id);
+    public String printSchedule();
     
 }

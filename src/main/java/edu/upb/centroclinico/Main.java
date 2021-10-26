@@ -22,9 +22,18 @@ public class Main {
         
         Schedule schedule = new Schedule();
         
+        Patient patient1 = new Patient(12, "Rodrigo", 1005289730, "Coonmeva");
+        Appointment appointment1 = new Appointment("Ortodoncia", patient1);
+        
+        Patient patient2 = new Patient(25, "Adriana", 1034562166, "Coonmeva");
+        Appointment appointment2 = new Appointment("Ortodoncia", patient2);
+        
+        schedule.add(appointment1);
+        schedule.add(appointment2);
+        
         int input = -1;
         do {
-            input = Integer.parseInt(JOptionPane.showInputDialog("1. Para agregar \n2. Buscar \n3. Eliminar \n4. Imprimir \n0. Salir"));
+            input = Integer.parseInt(JOptionPane.showInputDialog("1. Para agregar \n2. Eliminar \n3. Imprimir \n0. Salir"));
 
             switch (input) {
                 case 1:
@@ -44,15 +53,14 @@ public class Main {
                     break;
 
                 case 2:
-                    break;
-
-                case 3:
-                    break;
-                case 4:
                     
-                    schedule.getCitations().print();
-                    //String schedules = schedule.getCitations().print();
-                    //JOptionPane.showMessageDialog(null, schedule);
+                    int deleteId = Integer.parseInt(JOptionPane.showInputDialog("Digite el documento para retirar cita:"));
+                    schedule.deleteId(deleteId);
+
+                    break;
+                case 3:
+                    
+                    JOptionPane.showMessageDialog(null, schedule.printSchedule());
                     break;
             }
 

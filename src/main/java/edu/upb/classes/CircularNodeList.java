@@ -9,7 +9,7 @@ package edu.upb.classes;
  *
  * @author santi
  */
-public class CircularNodeList <T extends Comparable<T>> implements ICitations<T>{
+public class CircularNodeList <T extends Comparable<T>> {
     
     private Node first;
     private Node last;
@@ -54,7 +54,6 @@ public class CircularNodeList <T extends Comparable<T>> implements ICitations<T>
     }
     
 
-    @Override
     public void addNode(T appointment) {
         
         Node<T> current = new Node(appointment);

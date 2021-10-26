@@ -9,11 +9,27 @@ package edu.upb.classes;
  *
  * @author santi
  */
-public class Schedule {
+public class Schedule <T extends Comparable<T>> implements ISchedule<T>{
     
     private Node actual = null;
     private CircularNodeList<Appointment> citations;
 
+    
+    public Node getActual() {
+        return actual;
+    }
+
+    public void setActual(Node actual) {
+        this.actual = actual;
+    }
+
+    public CircularNodeList<Appointment> getCitations() {
+        return citations;
+    }
+
+    public void setCitations(CircularNodeList<Appointment> citations) {
+        this.citations = citations;
+    }
     
     //  Constructor con los 15 espacios disponibles para las citas por día.
     public Schedule () {
@@ -26,6 +42,7 @@ public class Schedule {
     }
 
     //  Agregar cita al espacio indicado.
+    @Override
     public void add(Appointment session){
         
         Appointment newAppointment = session;
@@ -53,7 +70,7 @@ public class Schedule {
         }
     }
     
-    
+    @Override
     public void deleteId(int id){
         
         Node deletePatient = citations.getFirst();
@@ -81,21 +98,21 @@ public class Schedule {
         
     }
     
+    @Override
+    public String printSchedule(){
+        
+        Node current = citations.getFirst();
+        
+        String print = "";
+        
+        for(int i = 0; i < 15; i++){
+            
+            print = print + current.getValue()+"\n\n";
+            current = current.getNext();
+        }
+        
+        return print;
+    }
     
-    public Node getActual() {
-        return actual;
-    }
-
-    public void setActual(Node actual) {
-        this.actual = actual;
-    }
-
-    public CircularNodeList<Appointment> getCitations() {
-        return citations;
-    }
-
-    public void setCitations(CircularNodeList<Appointment> citations) {
-        this.citations = citations;
-    }
 
 }
